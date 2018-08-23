@@ -14,4 +14,20 @@ class TextAnalyzer
   def count_of_vowels
     text.scan(/[aeiou]/).count
   end
+
+  def count_of_consonants
+    text.scane(/[bcdfghjklmnpqrstvwxyz]/).count
+  end
+
+  def most_used_letter
+    s1 = text.gsub(/[^a-z]/, '')
+    arr = s1.split('')
+    arr1 = arr.uniq
+    arr2 = {}
+
+    arr1.map do |c|
+      arr[c] = arr.count(c)
+    end
+  end
+
 end
