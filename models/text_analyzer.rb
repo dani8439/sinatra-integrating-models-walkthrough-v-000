@@ -1,6 +1,5 @@
-# Your TextAnalyzer model code will go here.
 class TextAnalyzer
-  attr_reader text
+  attr_reader :text
 
   def initialize(text)
     @text = text.downcase
@@ -12,21 +11,21 @@ class TextAnalyzer
   end
 
   def count_of_vowels
-    text.scan(/[aeiou]/).count
+    text.scan(/[aeoui]/).count
   end
 
   def count_of_consonants
-    text.scane(/[bcdfghjklmnpqrstvwxyz]/).count
+    text.scan(/[bcdfghjklmnpqrstvwxyz]/).count
   end
 
   def most_used_letter
-    s1 = text.gsub(/[^a-z]/, '')
+    s1 = text.gsub(/[^a-z]/, '') # gets rid of spaces
     arr = s1.split('')
     arr1 = arr.uniq
     arr2 = {}
 
     arr1.map do |c|
-      arr[c] = arr.count(c)
+      arr2[c] =  arr.count(c)
     end
 
     biggest = { arr2.keys.first => arr2.values.first }
@@ -40,5 +39,4 @@ class TextAnalyzer
 
     biggest
   end
-
 end
